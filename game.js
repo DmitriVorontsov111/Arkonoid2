@@ -79,6 +79,7 @@ let game = {
         this.collideBlocks();
         this.collidePlatform();
         this.ball.collideWorldBounds();
+        this.platform.collideWorldBounds();
         this.platform.move();
         this.ball.move();
     },
@@ -286,6 +287,19 @@ game.platform = {
         let result = 2 * offset / this.width;
 
         return result - 1;
+    },
+
+    collideWorldBounds() {
+        let x = this.x;
+        let platformLeft = x;
+        let platformRight = platformLeft + this.width;
+
+        let worldLeft = 0;
+        let worldRight = game.width;
+
+        if (platformLeft < worldLeft || platformRight > worldRight) {
+            this.dx = 0;
+        }
     }
 };
 
