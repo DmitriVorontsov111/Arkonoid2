@@ -428,7 +428,7 @@ game.ball = {
 
     dy: 0,
 
-    velocity: 4,
+    velocity: 3,
 
     x: 320,
 
